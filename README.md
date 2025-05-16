@@ -23,3 +23,40 @@ python --version
 
 #Continuous Integration
 GitHub Actions workflow (.github/workflows/ci.yml) automatically installs dependencies and verifies the Python environment by running:
+
+
+# implemnt the follwing folder structure
+
+├── .vscode/
+
+│   └── settings.json
+
+├── .github/
+
+│   └── workflows
+
+│       ├── unittests.yml
+
+├── .gitignore
+
+├── requirements.txt
+
+├── README.md
+
+ |------ src/
+
+├── notebooks/
+
+│   ├── __init__.py
+
+│   └── README.md
+
+├── tests/
+
+│   ├── __init__.py
+
+└── scripts/
+
+    ├── __init__.py
+
+    └── README.md
