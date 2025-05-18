@@ -60,3 +60,6 @@ GitHub Actions workflow (.github/workflows/ci.yml) automatically installs depend
     ├── __init__.py
 
     └── README.md
+
+![Git Network Graph](docs/git-network-graph.png)
+c
