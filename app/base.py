@@ -2,17 +2,23 @@ import streamlit as st
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
+from pathlib import Path
 
 st.set_page_config(layout="wide", page_title="Solar Country Comparison")
 
+# Use the correct relative paths
 @st.cache_data
 def load_data():
-    df_benin = pd.read_csv("C:/Users/mintesinot/10_acadamey/solar-challenge-week1/data/benin-malanville_clean.csv", parse_dates=["Timestamp"])
-    df_sierra = pd.read_csv("C:/Users/mintesinot/10_acadamey/solar-challenge-week1/data/sierraleone-bumbuna_clean.csv", parse_dates=["Timestamp"])
-    df_togo = pd.read_csv("C:/Users/mintesinot/10_acadamey/solar-challenge-week1/data/togo-dapaong_qc_clean.csv", parse_dates=["Timestamp"])
+    data_dir = Path(__file__).resolve().parent.parent / "data"
+    
+    df_benin = pd.read_csv(data_dir / "benin-malanville_clean.csv", parse_dates=["Timestamp"])
+    df_sierra = pd.read_csv(data_dir / "sierraleone-bumbuna_clean.csv", parse_dates=["Timestamp"])
+    df_togo = pd.read_csv(data_dir / "togo-dapaong_qc_clean.csv", parse_dates=["Timestamp"])
+    
     df_benin["Country"] = "Benin"
     df_sierra["Country"] = "Sierra Leone"
     df_togo["Country"] = "Togo"
+    
     return pd.concat([df_benin, df_sierra, df_togo])
 
 df = load_data()
