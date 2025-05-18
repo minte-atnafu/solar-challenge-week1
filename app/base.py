@@ -6,11 +6,11 @@ from pathlib import Path
 
 st.set_page_config(layout="wide", page_title="Solar Country Comparison")
 
-# Use the correct relative paths
+# 🔧 Dynamically resolve the path to the /data folder
+data_dir = Path(__file__).resolve().parent.parent / "data"
+
 @st.cache_data
 def load_data():
-    data_dir = Path(__file__).resolve().parent.parent / "data"
-    
     df_benin = pd.read_csv(data_dir / "benin-malanville_clean.csv", parse_dates=["Timestamp"])
     df_sierra = pd.read_csv(data_dir / "sierraleone-bumbuna_clean.csv", parse_dates=["Timestamp"])
     df_togo = pd.read_csv(data_dir / "togo-dapaong_qc_clean.csv", parse_dates=["Timestamp"])
